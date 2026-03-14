@@ -1,4 +1,4 @@
-namespace MessagingAPI.Api.Domain;
+namespace ChatAPI.Domain;
 
 public class ConversationParticipant
 {

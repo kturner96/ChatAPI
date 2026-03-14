@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ChatAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260314031236_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260314042149_FixCreateUserRequestTypo")]
+    partial class FixCreateUserRequestTypo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace ChatAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("MessagingAPI.Api.Domain.Conversation", b =>
+            modelBuilder.Entity("ChatAPI.Domain.Conversation", b =>
                 {
                     b.Property<int>("ConversationId")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace ChatAPI.Migrations
                     b.ToTable("Conversations");
                 });
 
-            modelBuilder.Entity("MessagingAPI.Api.Domain.ConversationParticipant", b =>
+            modelBuilder.Entity("ChatAPI.Domain.ConversationParticipant", b =>
                 {
                     b.Property<int>("ConversationId")
                         .HasColumnType("integer");
@@ -57,7 +57,7 @@ namespace ChatAPI.Migrations
                     b.ToTable("ConversationParticipants");
                 });
 
-            modelBuilder.Entity("MessagingAPI.Api.Domain.Message", b =>
+            modelBuilder.Entity("ChatAPI.Domain.Message", b =>
                 {
                     b.Property<int>("MessageId")
                         .ValueGeneratedOnAdd()
@@ -83,7 +83,7 @@ namespace ChatAPI.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("MessagingAPI.Api.Domain.User", b =>
+            modelBuilder.Entity("ChatAPI.Domain.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -91,7 +91,7 @@ namespace ChatAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
 
-                    b.Property<DateTime>("CreateAt")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")

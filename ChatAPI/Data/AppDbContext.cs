@@ -1,7 +1,7 @@
-using MessagingAPI.Api.Domain;
+using ChatAPI.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace MessagingAPI.Api.Data;
+namespace ChatAPI.Data;
 
 public class AppDbContext : DbContext
 {
